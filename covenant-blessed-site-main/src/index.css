@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 30 15% 20%;
+
+    --card: 40 40% 96%;
+    --card-foreground: 30 15% 20%;
+
+    --popover: 40 33% 97%;
+    --popover-foreground: 30 15% 20%;
+
+    --primary: 38 55% 55%;
+    --primary-foreground: 40 33% 97%;
+
+    --secondary: 40 30% 92%;
+    --secondary-foreground: 30 15% 25%;
+
+    --muted: 40 20% 93%;
+    --muted-foreground: 30 10% 45%;
+
+    --accent: 145 20% 72%;
+    --accent-foreground: 145 25% 25%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 38 30% 85%;
+    --input: 38 30% 85%;
+    --ring: 38 55% 55%;
+
+    --radius: 0.5rem;
+
+    --blush: 350 50% 88%;
+    --blush-foreground: 350 30% 30%;
+    --champagne: 38 60% 80%;
+    --gold: 38 70% 50%;
+    --gold-light: 38 60% 70%;
+    --ivory: 40 33% 97%;
+    --sage: 145 20% 72%;
+    --sage-dark: 145 18% 40%;
+    --warm-white: 40 50% 99%;
+
+    --font-script: 'Great Vibes', cursive;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-body: 'Lora', serif;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+  }
+
+  .font-script {
+    font-family: var(--font-script);
+  }
+
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+}
+
+@layer components {
+  .section-divider {
+    @apply w-24 h-px mx-auto;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+  }
+
+  .section-divider-wide {
+    @apply w-48 h-px mx-auto;
+    background: linear-gradient(90deg, transparent, hsl(var(--gold)), transparent);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 40px -10px hsl(var(--gold) / 0.3);
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(135deg, hsl(var(--gold)), hsl(var(--gold-light)), hsl(var(--gold)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-section-alt {
+    background: linear-gradient(180deg, hsl(var(--warm-white)), hsl(var(--ivory)));
+  }
+
+  .bg-section-blush {
+    background: linear-gradient(180deg, hsl(var(--blush) / 0.2), hsl(var(--ivory)));
+  }
+
+  .cross-motif::before {
+    content: '✝';
+    @apply text-xs opacity-30;
+    color: hsl(var(--gold));
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out both;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out both;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  .delay-600 { animation-delay: 600ms; }
+  .delay-700 { animation-delay: 700ms; }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes countPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--ivory));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--champagne));
+  border-radius: 3px;
+}
